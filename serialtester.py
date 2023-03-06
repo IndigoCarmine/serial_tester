@@ -54,8 +54,9 @@ class USBCAN:
         while not is_return:
             time.sleep(1)
             self.ser.write(HelloUSBCAN)
-            u = self.ser.read_all()
-            if u ==b'\x0bHelloUSBCAN\x00':
+            data = self.ser.read_all()
+            data = cobs_decode(data)
+            if data ==b'\x10HelloSLCAN':
                 is_return = True
                 print("Handshake success")
                 print("The board has FW_version 2, and it is working")

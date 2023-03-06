@@ -6,16 +6,21 @@ USBCAN should install my firmware
 Use pip to install the dependencies. You should run the following commands in the terminal.
 
 '''bash
+
 pip install pyserial
+
 pip install cobs
+
 '''
 
 Check the serial port name, and replace the port name in the code.
 e.g.
 Linux: /dev/serial/by-id/usb-FTD...
-(if you set udev rules, you can use /dev/usbcan)
+(if you set udev rules, you can use /dev/usbcan2)
 Windows: COM...
 
 '''python
+
 usbc = serialtester.USBCAN("COM18")  # replace the port name
+
 '''
